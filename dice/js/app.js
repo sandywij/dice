@@ -3,10 +3,20 @@
 // 1) Write the following program:
 // * Generate a random number between 1 - 6 inclusive and store to a variable, randomOne
 //     * Hint: Look at the Math.random() documentation on MDN for a function that does this
+
+
+const rollDie = function () {
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
 // * Generate a random number between 1 - 6 inclusive and store to a variable, randomTwo
+
 // * Combine 'dice-' and randomOne to form the random class for the first die, `firstDie`
 //     * Hint: Take a look at the class set, in index.html, on the elements for the dice
 //     * Hint: Take a look at the CSS rules that have .dice-1, .dice-2, etc as their selector
+document.getElementById('first-die').className = "dice-" + randomNumber(1, 6);
+document.getElementById('second-die').className = "dice-" + randomNumber(1, 6);
+}
 // * Combine 'dice-' and randomTwo to form the random class for the second die, `secondDie`
 // * Get the first die by id and update its class to `firstDie`
 //     * Hint: document.getElementById to get the die by id
@@ -18,3 +28,4 @@
 //     * Hint: You'll want to wrap the code from the first part in a function.
 //     * Hint: What method can you use to select the `Roll the Dice` button based on its id?
 //     * Hint: You'll need to use onclick to listen for clicks on the button
+document.getElementById("roll-dice").addEventListener("click", rollDie);
